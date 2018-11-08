@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysely;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KyselyRepository;
 
@@ -14,12 +16,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:8080")
 public class KyselyController {
 	
 @Autowired
+
 private KyselyRepository repository;
 	
 	// Etsi kaikki kysymykset
+
 	@RequestMapping(value="/kyselyt", method = RequestMethod.GET)
 	public @ResponseBody List<Kysely> kyselyListRest() {	
 		return (List<Kysely>) repository.findAll();

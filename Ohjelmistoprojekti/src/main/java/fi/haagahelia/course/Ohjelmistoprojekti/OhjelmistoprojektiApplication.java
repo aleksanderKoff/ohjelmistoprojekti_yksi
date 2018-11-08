@@ -8,8 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysely;
-import fi.haagahelia.course.Ohjelmistoprojekti.domain.KyselyRepository;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
 
 @SpringBootApplication
 public class OhjelmistoprojektiApplication {
@@ -20,19 +20,19 @@ public class OhjelmistoprojektiApplication {
 		}
 		
 		@Bean
-		public CommandLineRunner kyselyDemo(KyselyRepository repository) {
+		public CommandLineRunner kyselyDemo(KysymysRepository repository) {
 			return (args) -> {
 				log.info("tallennetaan muutama kysely");
-				repository.save(new Kysely( "Millainen oli ensikosketuksesi Helgan tutortoimintaan?"));
-				repository.save(new Kysely( "Mihin olet ollut tyytyväinen tutortoiminnassa?"));
-				repository.save(new Kysely( "Missä olisi parantamisen varaa?"));
-				repository.save(new Kysely( "Oletko kiinnostunut toimimaan Helgan tutorina? Jos, niin miksi?"));
-				repository.save(new Kysely( "Millaisessa tilanteessa olet tarvinnut tutorilta apua?"));
+				repository.save(new Kysymys( "Millainen oli ensikosketuksesi Helgan tutortoimintaan?"));
+				repository.save(new Kysymys( "Mihin olet ollut tyytyväinen tutortoiminnassa?"));
+				repository.save(new Kysymys( "Missä olisi parantamisen varaa?"));
+				repository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? Jos, niin miksi?"));
+				repository.save(new Kysymys( "Millaisessa tilanteessa olet tarvinnut tutorilta apua?"));
 				
 					
 				
 				log.info("hae kaikki kyselyt");
-				for (Kysely kysely : repository.findAll()) {
+				for (Kysymys kysely : repository.findAll()) {
 					log.info(kysely.toString());
 				}
 

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface KyselyRepository extends CrudRepository<Kysely, Long> {
+public interface KysymysRepository extends CrudRepository<Kysymys, Long> {
 	
-	Optional<Kysely> findById(Long id);
+	Optional<Kysymys> findById(Long id);
 }

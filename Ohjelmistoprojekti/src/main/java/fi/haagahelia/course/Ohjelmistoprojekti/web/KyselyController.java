@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysely;
-import fi.haagahelia.course.Ohjelmistoprojekti.domain.KyselyRepository;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,18 +21,18 @@ public class KyselyController {
 	
 @Autowired
 
-private KyselyRepository repository;
+private KysymysRepository repository;
 	
 	// Etsi kaikki kysymykset
 
 	@RequestMapping(value="/kyselyt", method = RequestMethod.GET)
-	public @ResponseBody List<Kysely> kyselyListRest() {	
-		return (List<Kysely>) repository.findAll();
+	public @ResponseBody List<Kysymys> kyselyListRest() {	
+		return (List<Kysymys>) repository.findAll();
 }
 
 	// Etsi kysymys ID:llä
 	@RequestMapping(value="/kysely/{id}", method = RequestMethod.GET)
-	public @ResponseBody Optional<Kysely> findKyselyRest(@PathVariable("id") Long id) {
+	public @ResponseBody Optional<Kysymys> findKyselyRest(@PathVariable("id") Long id) {
 		return repository.findById(id);
 	}
 }

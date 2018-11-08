@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin
 public class KyselyController {
 	
 @Autowired

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -13,7 +15,11 @@ public class Kysymys {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String kysymys;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "kyselyid")
+	private Kysely kysely;
+	
 	public Kysymys() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -42,7 +48,7 @@ public class Kysymys {
 
 	@Override
 	public String toString() {
-		return "Kysely [id=" + id + "]";
+		return "Kysymys [id=" + id + "]";
 	}
 
 }

@@ -41,21 +41,21 @@ public class OhjelmistoprojektiApplication {
 				};
 		}
 				
-				@Bean
-				public CommandLineRunner vastausDemo(VastausRepository repository) {
-					return (args) -> {
-						log.info("tallenna vastauksia");
-						repository.save(new Vastaus());
+				
+		@Bean
+		public CommandLineRunner vastausDemo(VastausRepository repository) {
+			return (args) -> {
+				log.info("tallenna vastauksia");
+				repository.save(new Vastaus());
 
-						
-							
-						
-						log.info("hakee kaikki vastaukset");
-						for (Vastaus vastaus : repository.findAll()) {
-							log.info(vastaus.toString());
-						
-						}
-					};
+				
+					
+				
+				log.info("hakee kaikki vastaukset");
+				for (Vastaus vastaus : repository.findAll()) {
+					log.info(vastaus.toString());
+				
+				}};	
 				}}
 
 					

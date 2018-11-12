@@ -20,14 +20,24 @@ public class Kysymys {
 	@JoinColumn(name = "kyselyid")
 	private Kysely kysely;
 	
+	@ManyToOne
+	@JoinColumn(name = "vastausid")
+	private Vastaus vastaus;
+	
 	public Kysymys() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Kysymys(String kysymys, Kysely kysely) {
+		this.kysymys = kysymys;
+		this.kysely = kysely;
+	}
 
-	public Kysymys(String kysymys) {
+	public Kysymys(String kysymys, Kysely kysely, Vastaus vastaus) {
 		super();
 		this.kysymys = kysymys;
+		this.kysely = kysely;
+		this.vastaus = vastaus;
 	}
 
 	public String getKysymys() {

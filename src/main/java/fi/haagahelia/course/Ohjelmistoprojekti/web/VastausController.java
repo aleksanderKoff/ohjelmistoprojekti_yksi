@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,25 +24,25 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
 public class VastausController {
 	
 @Autowired
-private VastausRepository repository;
+private VastausRepository vrepository;
 
 //RESTful Kaikkien vastausten haku
 @RequestMapping(value="/vastaus", method = RequestMethod.GET)
 public @ResponseBody List<Vastaus> vastausListRest() {	
-  return (List<Vastaus>) repository.findAll();
+  return (List<Vastaus>) vrepository.findAll();
 }    
 
 //RESTful Vastaustes haku ID:llä
 @RequestMapping(value="/vastaus/{id}", method = RequestMethod.GET)
 public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("id") Long id) {	
-	return repository.findById(id);
+	return vrepository.findById(id);
 }	
 
 //RESTful Vastausten tallennus
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Vastaus vastaus){
-	    repository.save(vastaus);
-	    return "redirect:kysely";
+	public @ResponseBody Vastaus save(@RequestBody Vastaus vastaus){
+	    vrepository.save(vastaus);
+	    return vastaus;
 
 
 }

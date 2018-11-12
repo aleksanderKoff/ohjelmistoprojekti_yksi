@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysely;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.KyselyRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Vastaus;
@@ -23,14 +25,18 @@ public class OhjelmistoprojektiApplication {
 		}
 		
 		@Bean
-		public CommandLineRunner kyselyDemo(KysymysRepository repository) {
+		public CommandLineRunner kyselyDemo(KysymysRepository repository, KyselyRepository krepository, VastausRepository vrepository) {
 			return (args) -> {
 				log.info("tallennetaan muutama kysely");
-				repository.save(new Kysymys( "Millainen oli ensikosketuksesi Helgan tutortoimintaan?"));
-				repository.save(new Kysymys( "Mihin olet ollut tyytyväinen tutortoiminnassa?"));
-				repository.save(new Kysymys( "Missä olisi parantamisen varaa?"));
-				repository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? Jos, niin miksi?"));
-				repository.save(new Kysymys( "Millaisessa tilanteessa olet tarvinnut tutorilta apua?"));
+				
+				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
+	            krepository.save(tutor);
+				
+				repository.save(new Kysymys( "Millainen oli ensikosketuksesi Helgan tutortoimintaan?", tutor));
+				repository.save(new Kysymys( "Mihin olet ollut tyytyväinen tutortoiminnassa?", tutor));
+				repository.save(new Kysymys( "Missä olisi parantamisen varaa?", tutor));
+				repository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? Jos, niin miksi?", tutor));
+				repository.save(new Kysymys( "Millaisessa tilanteessa olet tarvinnut tutorilta apua?", tutor));
 				
 					
 				

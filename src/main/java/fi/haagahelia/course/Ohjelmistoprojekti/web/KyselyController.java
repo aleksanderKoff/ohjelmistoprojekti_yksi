@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.KyselyRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +24,10 @@ public class KyselyController {
 @Autowired
 
 private KysymysRepository repository;
+
+@Autowired
+private KyselyRepository krepository;
+
 	
 	// Etsi kaikki kysymykset
 
@@ -35,4 +41,6 @@ private KysymysRepository repository;
 	public @ResponseBody Optional<Kysymys> findKyselyRest(@PathVariable("id") Long id) {
 		return repository.findById(id);
 	}
+	
+	
 }

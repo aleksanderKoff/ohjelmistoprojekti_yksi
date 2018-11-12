@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -18,6 +20,25 @@ public class Vastaus {
 	private Long id;
 	private String vastaus;
 	
+	
+	@ManyToOne
+	@JoinColumn(name = "kysymysid")
+	private Kysymys kysymys;
+	
+	
+	public Vastaus(Kysymys kysymys) {
+		super();
+		this.kysymys = kysymys;
+	}
+
+	public Kysymys getKysymys() {
+		return kysymys;
+	}
+
+	public void setKysymys(Kysymys kysymys) {
+		this.kysymys = kysymys;
+	}
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaus")
 	private List<Vastaus> vastaukset;
 	

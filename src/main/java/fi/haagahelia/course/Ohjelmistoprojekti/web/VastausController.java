@@ -32,7 +32,7 @@ public @ResponseBody List<Vastaus> vastausListRest() {
   return (List<Vastaus>) vrepository.findAll();
 }    
 
-//RESTful Vastaustes haku ID:llä
+//RESTful Vastausten haku ID:llä
 @RequestMapping(value="/vastaus/{id}", method = RequestMethod.GET)
 public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("id") Long id) {	
 	return vrepository.findById(id);
@@ -46,7 +46,7 @@ public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("id") Long 
 
 
 }
-	//Annotaatio varmistaa, että HTTP pyyntö /kysely kartoiteaan vastaus() metodiin 
+	//Annotaatio varmistaa, että HTTP pyyntö /kysely kartoiteaan vastaus() metodin 
 		@CrossOrigin(origins = "http://localhost:8080")
 		   @GetMapping("/kysely")
 		   public Vastaus greeting(@RequestParam(required=false, defaultValue="World") String name) {

@@ -14,6 +14,8 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Vastaus;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehto;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehtoRepository;
 
 
 @SpringBootApplication
@@ -25,7 +27,7 @@ public class OhjelmistoprojektiApplication {
 		}
 		
 		@Bean
-		public CommandLineRunner kyselyDemo(KysymysRepository repository, KyselyRepository krepository, VastausRepository vrepository) {
+		public CommandLineRunner kyselyDemo(KysymysRepository repository, KyselyRepository krepository, VastausRepository vrepository, VastausVaihtoehtoRepository vvrepository) {
 			return (args) -> {
 				log.info("tallennetaan muutama kysely");
 				
@@ -61,8 +63,26 @@ public class OhjelmistoprojektiApplication {
 				for (Vastaus vastaus : repository.findAll()) {
 					log.info(vastaus.toString());
 				
+				
 				}};	
-				}}
+		}
+
+		
+				@Bean
+				public CommandLineRunner vastausvaihtoehtoDemo(VastausVaihtoehtoRepository vvrepository) {
+				return (args) -> {
+					log.info("tallenna vastausvaihtoehtoja");
+					vvrepository.save(new VastausVaihtoehto());
+			
+					
+						
+					
+					log.info("hakee kaikki vastausvaihtoehdot");
+					for (VastausVaihtoehto vastausvaihtoehto : vvrepository.findAll()) {
+						log.info(vastausvaihtoehto.toString());
+					
+					}};	
+					}}
 
 					
 	

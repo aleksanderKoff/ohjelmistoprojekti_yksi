@@ -34,13 +34,13 @@ public class OhjelmistoprojektiApplication {
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
-				repository.save(new Kysymys( "Millainen oli ensikosketuksesi Helgan tutortoimintaan?", tutor));
-				repository.save(new Kysymys( "Mihin olet ollut tyytyväinen tutortoiminnassa?", tutor));
-				repository.save(new Kysymys( "Missä olisi parantamisen varaa?", tutor));
-				repository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? Jos, niin miksi?", tutor));
-				repository.save(new Kysymys( "Millaisessa tilanteessa olet tarvinnut tutorilta apua?", tutor));
-				
-					
+				repository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", tutor));
+				repository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina?", tutor));	
+				repository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", tutor));
+				repository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä?", tutor));
+				repository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", tutor));
+				repository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", tutor));
+				repository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", tutor));
 				
 				log.info("hae kaikki kyselyt");
 				for (Kysymys kysymys : repository.findAll()) {
@@ -65,16 +65,16 @@ public class OhjelmistoprojektiApplication {
 				
 				
 				}};	
-		}
+		} 
 
 		
-				@Bean
+			/*	@Bean
 				public CommandLineRunner vastausvaihtoehtoDemo(VastausVaihtoehtoRepository vvrepository) {
 				return (args) -> {
 					log.info("tallenna vastausvaihtoehtoja");
 					vvrepository.save(new VastausVaihtoehto());
 			
-					
+					vvrepository.save(new VastausVaihtoehto( "Missä olisit tarvinnut enemmän tukea tutoreilta?", tutor));
 						
 					
 					log.info("hakee kaikki vastausvaihtoehdot");
@@ -82,7 +82,9 @@ public class OhjelmistoprojektiApplication {
 						log.info(vastausvaihtoehto.toString());
 					
 					}};	
-					}}
+					}*/
+					
+					}
 
 					
 	

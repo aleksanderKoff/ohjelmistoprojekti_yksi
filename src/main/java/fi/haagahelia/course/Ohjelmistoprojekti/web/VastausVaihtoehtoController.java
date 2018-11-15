@@ -19,13 +19,13 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehtoRepositor
 
 @Controller
 public class VastausVaihtoehtoController {
-	
+/*	
 @Autowired
 private VastausVaihtoehtoRepository vvrepository;
 
 //RESTful Kaikkien vastausvaihtoehtojen haku
 @RequestMapping(value="/vastausvaihtoehto", method = RequestMethod.GET)
-public @ResponseBody List<VastausVaihtoehto> vastausvaihtoehtoListRest() {	
+public @ResponseBody List<VastausVaihtoehto> vastausVaihtoehtoListRest() {	
   return (List<VastausVaihtoehto>) vvrepository.findAll();
 }    
 
@@ -49,5 +49,5 @@ public @ResponseBody Optional<VastausVaihtoehto> findVastausVaihtoehtoRest(@Path
 		   public VastausVaihtoehto greeting(@RequestParam(required=false, defaultValue="World") String name) {
 		   System.out.println("VastausVaihtoehto post-test");
 		   return new VastausVaihtoehto();
-}
+}*/
 }

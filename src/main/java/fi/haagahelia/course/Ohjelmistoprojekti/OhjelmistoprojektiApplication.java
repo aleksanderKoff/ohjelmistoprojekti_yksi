@@ -27,14 +27,23 @@ public class OhjelmistoprojektiApplication {
 		}
 		
 		@Bean
+		public CommandLineRunner kyselyDemo(KysymysRepository kysrepository, KyselyRepository krepository, VastausRepository vrepository, VastausVaihtoehtoRepository vvrepository) {
 			return (args) -> {
 				log.info("tallennetaan muutama kysely");
 				
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
+	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", tutor));
+	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina?", tutor));	
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", tutor));
+	            kysrepository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä?", tutor));
+	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", tutor));
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", tutor));
+	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", tutor));
 				
 				log.info("hae kaikki kyselyt");
+				for (Kysymys kysymys : kysrepository.findAll()) {
 					log.info(kysymys.toString());
 				}
 				};
@@ -42,23 +51,30 @@ public class OhjelmistoprojektiApplication {
 				
 				
 		@Bean
+		public CommandLineRunner vastausDemo(VastausRepository vrepository, KysymysRepository kysrepository) {
 			return (args) -> {
 				log.info("tallenna vastauksia");
 				vrepository.save(new Vastaus());
 
+				//vrepository.save(new Vastaus("", kysrepository.findByKysymys("Oletko kiinnostunut toimimaan Helgan tutorina?").get(0)));
 					
 				
 				log.info("hakee kaikki vastaukset");
+				for (Vastaus vastaus : vrepository.findAll()) {
 					log.info(vastaus.toString());
 				
 				
 				}};	
 		} 
 
+		/*
+				@Bean
+				public CommandLineRunner vastausvaihtoehtoDemo(VastausVaihtoehtoRepository vvrepository, KysymysRepository kysrepository, KyselyRepository krepository) {
 				return (args) -> {
 					log.info("tallenna vastausvaihtoehtoja");
 					vvrepository.save(new VastausVaihtoehto());
 			
+					vvrepository.save(new VastausVaihtoehto());
 						
 					
 					log.info("hakee kaikki vastausvaihtoehdot");

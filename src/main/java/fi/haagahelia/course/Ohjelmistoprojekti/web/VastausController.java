@@ -55,4 +55,4 @@ public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("id") Long 
 		   return new Vastaus();
 }
 }
-}
+

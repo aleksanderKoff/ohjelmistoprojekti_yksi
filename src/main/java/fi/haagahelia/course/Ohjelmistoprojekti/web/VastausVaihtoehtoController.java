@@ -51,4 +51,3 @@ public @ResponseBody Optional<VastausVaihtoehto> findVastausVaihtoehtoRest(@Path
 		   return new VastausVaihtoehto();
 }*/
 }
-}

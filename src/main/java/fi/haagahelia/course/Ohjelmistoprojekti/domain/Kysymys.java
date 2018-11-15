@@ -15,6 +15,7 @@ public class Kysymys {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String kysymys;
+	private String osio;
 	
 	@ManyToOne
 	@JoinColumn(name = "kyselyid")
@@ -26,8 +27,9 @@ public class Kysymys {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Kysymys(String kysymys, Kysely kysely) {
+	public Kysymys(String kysymys, String osio, Kysely kysely) {
 		this.kysymys = kysymys;
+		this.osio = osio;
 		this.kysely = kysely;
 	}
 
@@ -38,6 +40,15 @@ public class Kysymys {
 
 	public void setKysymys(String kysymys) {
 		this.kysymys = kysymys;
+	}
+
+	
+	public String getOsio() {
+		return osio;
+	}
+
+	public void setOsio(String osio) {
+		this.osio = osio;
 	}
 
 	public Long getId() {

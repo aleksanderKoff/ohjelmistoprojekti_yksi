@@ -34,13 +34,13 @@ public class OhjelmistoprojektiApplication {
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
-	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", tutor));
-	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina?", tutor));	
-	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", tutor));
-	            kysrepository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä?", tutor));
-	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", tutor));
-	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", tutor));
-	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", tutor));
+	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "osio1", tutor));
+	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina?", "osio1", tutor));	
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", "osio2", tutor));
+	            kysrepository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä?", "osio2", tutor));
+	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", "osio3", tutor));
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", "osio3", tutor));
+	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "osio3", tutor));
 				
 				log.info("hae kaikki kyselyt");
 				for (Kysymys kysymys : kysrepository.findAll()) {

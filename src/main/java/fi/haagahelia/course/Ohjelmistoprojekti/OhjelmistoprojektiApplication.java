@@ -27,23 +27,14 @@ public class OhjelmistoprojektiApplication {
 		}
 		
 		@Bean
-		public CommandLineRunner kyselyDemo(KysymysRepository repository, KyselyRepository krepository, VastausRepository vrepository, VastausVaihtoehtoRepository vvrepository) {
 			return (args) -> {
 				log.info("tallennetaan muutama kysely");
 				
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
-				repository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", tutor));
-				repository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina?", tutor));	
-				repository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", tutor));
-				repository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä?", tutor));
-				repository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", tutor));
-				repository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", tutor));
-				repository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", tutor));
 				
 				log.info("hae kaikki kyselyt");
-				for (Kysymys kysymys : repository.findAll()) {
 					log.info(kysymys.toString());
 				}
 				};
@@ -51,30 +42,23 @@ public class OhjelmistoprojektiApplication {
 				
 				
 		@Bean
-		public CommandLineRunner vastausDemo(VastausRepository repository) {
 			return (args) -> {
 				log.info("tallenna vastauksia");
-				repository.save(new Vastaus());
+				vrepository.save(new Vastaus());
 
-				
 					
 				
 				log.info("hakee kaikki vastaukset");
-				for (Vastaus vastaus : repository.findAll()) {
 					log.info(vastaus.toString());
 				
 				
 				}};	
 		} 
 
-		
-			/*	@Bean
-				public CommandLineRunner vastausvaihtoehtoDemo(VastausVaihtoehtoRepository vvrepository) {
 				return (args) -> {
 					log.info("tallenna vastausvaihtoehtoja");
 					vvrepository.save(new VastausVaihtoehto());
 			
-					vvrepository.save(new VastausVaihtoehto( "Missä olisit tarvinnut enemmän tukea tutoreilta?", tutor));
 						
 					
 					log.info("hakee kaikki vastausvaihtoehdot");

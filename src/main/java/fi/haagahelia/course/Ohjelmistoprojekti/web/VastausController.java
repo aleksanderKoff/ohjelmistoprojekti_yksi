@@ -23,7 +23,7 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
 @Controller
 public class VastausController {
 	
-	/*
+	
 @Autowired
 private VastausRepository vrepository;
 
@@ -54,5 +54,5 @@ public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("id") Long 
 		   System.out.println("Vastaus post-test");
 		   return new Vastaus();
 }
-}*/
+}
 }

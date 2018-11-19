@@ -16,6 +16,7 @@ public class Kysymys {
 	private Long id;
 	private String kysymys;
 	private String osio;
+	private String tyyppi;
 	
 	@ManyToOne
 	@JoinColumn(name = "kyselyid")
@@ -27,10 +28,12 @@ public class Kysymys {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Kysymys(String kysymys, String osio, Kysely kysely) {
+	public Kysymys(String kysymys, String osio,String tyyppi, Kysely kysely) {
 		this.kysymys = kysymys;
 		this.osio = osio;
 		this.kysely = kysely;
+		this.tyyppi = tyyppi;
+		
 	}
 
 
@@ -58,10 +61,29 @@ public class Kysymys {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
+	public String getTyyppi(String tyyppi) {
+		return tyyppi;
+		
+	}
+	
+	public void setTyyppi(String tyyppi) {
+		this.tyyppi = tyyppi;
+	}
+	public Kysely getKysely() {
+		return kysely ;
+	}
+	
+	public void setKysely(Kysely kysely) {
+		this.kysely = kysely;
+	}
+	
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + "]";
+		if (this.kysely !=null)
+		return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +" kysely=" + this.getKysely() + "]";
+		else
+		return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +"]";
 	}
 
 }

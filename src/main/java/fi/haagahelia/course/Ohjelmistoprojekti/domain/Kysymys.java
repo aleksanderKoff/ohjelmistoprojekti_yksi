@@ -70,20 +70,20 @@ public class Kysymys {
 	public void setTyyppi(String tyyppi) {
 		this.tyyppi = tyyppi;
 	}
-	public Kysely getKysely() {
+	/*public Kysely getKysely() {
 		return kysely ;
 	}
 	
 	public void setKysely(Kysely kysely) {
 		this.kysely = kysely;
 	}
-	
+	*/
 	@Override
 	public String toString() {
-		if (this.kysely !=null)
-		return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +" kysely=" + this.getKysely() + "]";
+		/*if (this.kysely !=null)
+		//return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +" kysely=" + this.getKysely() + "]";
 		else
-		return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +"]";
+*/		return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +"]";
 	}
 
 }

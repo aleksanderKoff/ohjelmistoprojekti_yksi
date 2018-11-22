@@ -16,6 +16,9 @@ public class Kysymys {
 	private Long id;
 	private String kysymys;
 	private String osio;
+	private String kysymys_teksti_lyhyt;
+	private String kysymys_teksti_pitka;
+	private String monivalinta;
 	
 	@ManyToOne
 	@JoinColumn(name = "kyselyid")
@@ -58,10 +61,37 @@ public class Kysymys {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+
+	public String getKysymys_teksti_lyhyt() {
+		return kysymys_teksti_lyhyt;
+	}
+
+	public void setKysymys_teksti_lyhyt(String kysymys_teksti_lyhyt) {
+		this.kysymys_teksti_lyhyt = kysymys_teksti_lyhyt;
+	}
+
+	public String getKysymys_teksti_pitka() {
+		return kysymys_teksti_pitka;
+	}
+
+	public void setKysymys_teksti_pitka(String kysymys_teksti_pitka) {
+		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
+	}
+
+	public String getMonivalinta() {
+		return monivalinta;
+	}
+
+	public void setMonivalinta(String monivalinta) {
+		this.monivalinta = monivalinta;
+	}
 
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + "]";
+		return "Kysymys [id=" + id + ", kysymys=" + kysymys + ", osio=" + osio + ", kysymys_teksti_lyhyt="
+				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", monivalinta="
+				+ monivalinta + ", kysely=" + kysely + "]";
 	}
 
 }

@@ -14,7 +14,6 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Vastaus;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
-import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehto;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehtoRepository;
 
 

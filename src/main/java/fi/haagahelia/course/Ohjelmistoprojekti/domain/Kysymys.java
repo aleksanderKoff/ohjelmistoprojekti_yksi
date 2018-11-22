@@ -18,7 +18,9 @@ public class Kysymys {
 	private String osio;
 	private String kysymys_teksti_lyhyt;
 	private String kysymys_teksti_pitka;
-	private String monivalinta;
+	private int monivalinta;
+	private boolean onRadio;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "kyselyid")
@@ -30,11 +32,38 @@ public class Kysymys {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Kysymys(String kysymys, String osio, Kysely kysely) {
+	
+	//Tämä contstructori on Radiobutton kysymystyypeille
+	//Boolean true = RadioButton
+	//False = Checkbox
+	public Kysymys(String kysymys, String osio, Kysely kysely, boolean onRadio) {
+
 		this.kysymys = kysymys;
 		this.osio = osio;
 		this.kysely = kysely;
+		this.onRadio = onRadio;
+
 	}
+	
+	//Tämä contstructori on tekstivastauksille
+	public Kysymys(Long id, String kysymys, String osio, String kysymys_teksti_lyhyt, String kysymys_teksti_pitka,
+			Kysely kysely) {
+		this.id = id;
+		this.kysymys = kysymys;
+		this.osio = osio;
+		this.kysymys_teksti_lyhyt = kysymys_teksti_lyhyt;
+		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
+		this.kysely = kysely;
+	}
+	public Kysymys(String kysymys, String osio, Kysely tutor ) {
+		
+		this.kysymys = kysymys;
+		this.osio = osio;
+		
+	}
+
+
+
 
 
 	public String getKysymys() {
@@ -62,6 +91,14 @@ public class Kysymys {
 		this.id = id;
 	}
 	
+	public boolean getonRadio(boolean onRadio) {
+		return onRadio;
+	}
+
+	public void setonRadio(boolean onRadio) {
+		this.onRadio = onRadio;
+	}
+	
 
 	public String getKysymys_teksti_lyhyt() {
 		return kysymys_teksti_lyhyt;
@@ -79,11 +116,11 @@ public class Kysymys {
 		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
 	}
 
-	public String getMonivalinta() {
+	public int getMonivalinta() {
 		return monivalinta;
 	}
 
-	public void setMonivalinta(String monivalinta) {
+	public void setMonivalinta(int monivalinta) {
 		this.monivalinta = monivalinta;
 	}
 
@@ -91,7 +128,7 @@ public class Kysymys {
 	public String toString() {
 		return "Kysymys [id=" + id + ", kysymys=" + kysymys + ", osio=" + osio + ", kysymys_teksti_lyhyt="
 				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", monivalinta="
-				+ monivalinta + ", kysely=" + kysely + "]";
+				+ monivalinta + ", onRadio=" + onRadio + ", kysely=" + kysely + "]";
 	}
 
 }

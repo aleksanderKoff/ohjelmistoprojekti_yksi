@@ -18,6 +18,15 @@ public class VastausVaihtoehto {
 	@ManyToOne
 	@JoinColumn(name = "kysymysid")
 	private Kysymys kysymys;
+	
+	
+
+	public VastausVaihtoehto(String vastausvaihtoehto, Kysymys kysymys) {
+		super();
+		
+		this.vastausvaihtoehto = vastausvaihtoehto;
+		this.kysymys = kysymys;
+	}
 
 	public String getVastausvaihtoehto() {
 		return vastausvaihtoehto;

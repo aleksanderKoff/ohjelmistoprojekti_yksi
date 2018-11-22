@@ -14,6 +14,7 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysymys;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KysymysRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Vastaus;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
+import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehto;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausVaihtoehtoRepository;
 
 
@@ -40,6 +41,14 @@ public class OhjelmistoprojektiApplication {
 	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", "osio3", tutor));
 	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", "osio3", tutor));
 	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "osio3", tutor));
+	            
+
+	            //Luodaan uusi kysymys tyyppi, ja talletetaan se repoon
+	            Kysymys apuaMonivalintakys1 = new Kysymys ( "Millaisessa tilanteessa olet saanut tutorilta apua?", "osio4", tutor, false);
+	            kysrepository.save(apuaMonivalintakys1);
+	            vvrepository.save(new VastausVaihtoehto("Apua kursseille ilmoittautumiseen", apuaMonivalintakys1));
+	            vvrepository.save(new VastausVaihtoehto("Tietoa opiskelijatapahtumista", apuaMonivalintakys1));
+	            
 				
 				log.info("hae kaikki kyselyt");
 				for (Kysymys kysymys : kysrepository.findAll()) {

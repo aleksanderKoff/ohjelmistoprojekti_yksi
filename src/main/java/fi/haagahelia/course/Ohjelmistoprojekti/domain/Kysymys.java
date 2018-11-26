@@ -16,7 +16,11 @@ public class Kysymys {
 	private Long id;
 	private String kysymys;
 	private String osio;
-	private String tyyppi;
+	private String kysymys_teksti_lyhyt;
+	private String kysymys_teksti_pitka;
+	private int monivalinta;
+	private boolean onRadio;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "kyselyid")
@@ -28,13 +32,38 @@ public class Kysymys {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Kysymys(String kysymys, String osio,String tyyppi, Kysely kysely) {
+	
+	//Tämä contstructori on Radiobutton kysymystyypeille
+	//Boolean true = RadioButton
+	//False = Checkbox
+	public Kysymys(String kysymys, String osio, Kysely kysely, boolean onRadio) {
+
 		this.kysymys = kysymys;
 		this.osio = osio;
 		this.kysely = kysely;
-		this.tyyppi = tyyppi;
+		this.onRadio = onRadio;
+
+	}
+	
+	//Tämä contstructori on tekstivastauksille
+	public Kysymys(Long id, String kysymys, String osio, String kysymys_teksti_lyhyt, String kysymys_teksti_pitka,
+			Kysely kysely) {
+		this.id = id;
+		this.kysymys = kysymys;
+		this.osio = osio;
+		this.kysymys_teksti_lyhyt = kysymys_teksti_lyhyt;
+		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
+		this.kysely = kysely;
+	}
+	public Kysymys(String kysymys, String osio, Kysely tutor ) {
+		
+		this.kysymys = kysymys;
+		this.osio = osio;
 		
 	}
+
+
+
 
 
 	public String getKysymys() {
@@ -62,28 +91,44 @@ public class Kysymys {
 		this.id = id;
 	}
 	
-	public String getTyyppi(String tyyppi) {
-		return tyyppi;
-		
+	public boolean getonRadio(boolean onRadio) {
+		return onRadio;
+	}
+
+	public void setonRadio(boolean onRadio) {
+		this.onRadio = onRadio;
 	}
 	
-	public void setTyyppi(String tyyppi) {
-		this.tyyppi = tyyppi;
+
+	public String getKysymys_teksti_lyhyt() {
+		return kysymys_teksti_lyhyt;
 	}
-	/*public Kysely getKysely() {
-		return kysely ;
+
+	public void setKysymys_teksti_lyhyt(String kysymys_teksti_lyhyt) {
+		this.kysymys_teksti_lyhyt = kysymys_teksti_lyhyt;
 	}
-	
-	public void setKysely(Kysely kysely) {
-		this.kysely = kysely;
+
+	public String getKysymys_teksti_pitka() {
+		return kysymys_teksti_pitka;
 	}
-	*/
+
+	public void setKysymys_teksti_pitka(String kysymys_teksti_pitka) {
+		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
+	}
+
+	public int getMonivalinta() {
+		return monivalinta;
+	}
+
+	public void setMonivalinta(int monivalinta) {
+		this.monivalinta = monivalinta;
+	}
+
 	@Override
 	public String toString() {
-		/*if (this.kysely !=null)
-		//return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +" kysely=" + this.getKysely() + "]";
-		else
-*/		return "Kysymys [id=" + id + " kysymys=" + kysymys + " osio=" + osio + " tyyppi=" + tyyppi +"]";
+		return "Kysymys [id=" + id + ", kysymys=" + kysymys + ", osio=" + osio + ", kysymys_teksti_lyhyt="
+				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", monivalinta="
+				+ monivalinta + ", onRadio=" + onRadio + ", kysely=" + kysely + "]";
 	}
 
 }

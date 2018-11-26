@@ -26,13 +26,13 @@ public class VastausController {
 	
 @Autowired
 private VastausRepository vastausrepository;
-
+/*
 //RESTful Kaikkien vastausten haku
 @RequestMapping(value="/vastaus", method = RequestMethod.GET)
 public @ResponseBody List<Vastaus> vastausListRest() {	
   return (List<Vastaus>) vastausrepository.findAll();
 }    
-
+*/
 
 //RESTful Vastausten haku ID:llä
 @RequestMapping(value="/vastaus/{id}", method = RequestMethod.GET)

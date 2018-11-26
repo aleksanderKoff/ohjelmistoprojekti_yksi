@@ -25,12 +25,12 @@ private KyselyRepository kyselyrepository;
 
 	
 	// Etsi kaikki kyselyt
-
+/*
 	@RequestMapping(value="/kysely", method = RequestMethod.GET)
 	public @ResponseBody List<Kysely> kyselyListRest() {	
 		return (List<Kysely>) kyselyrepository.findAll();
 }
-
+*/
 	 //Etsi kysely ID:llä
 	@RequestMapping(value="/kysely/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Kysely> findKyselyRest(@PathVariable("id") Long id) {

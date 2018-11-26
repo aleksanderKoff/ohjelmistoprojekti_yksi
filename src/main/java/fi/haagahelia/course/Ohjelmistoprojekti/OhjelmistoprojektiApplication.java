@@ -43,7 +43,7 @@ public class OhjelmistoprojektiApplication {
 	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "osio3", tutor));
 	            
 
-	            //Luodaan uusi kysymys tyyppi, ja talletetaan se repoon
+	            //Luodaan uusi kysymys_________tyyppi, ja talletetaan se repoon
 	            Kysymys apuaMonivalintakys1 = new Kysymys ( "Millaisessa tilanteessa olet saanut tutorilta apua?", "osio4", tutor, false);
 	            kysrepository.save(apuaMonivalintakys1);
 	            vvrepository.save(new VastausVaihtoehto("Apua kursseille ilmoittautumiseen", apuaMonivalintakys1));

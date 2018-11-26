@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.KyselyRepository;
 import fi.haagahelia.course.Ohjelmistoprojekti.domain.Kysely;
+
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,7 +22,7 @@ public class KyselyController {
 private KyselyRepository kyselyrepository;
 
 
-/*
+
 	
 	// Etsi kaikki kyselyt
 
@@ -28,7 +30,7 @@ private KyselyRepository kyselyrepository;
 	public @ResponseBody List<Kysely> kyselyListRest() {	
 		return (List<Kysely>) kyselyrepository.findAll();
 }
-*/
+
 	 //Etsi kysely ID:llä
 	@RequestMapping(value="/kysely/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Kysely> findKyselyRest(@PathVariable("id") Long id) {

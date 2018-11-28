@@ -34,17 +34,20 @@ public class OhjelmistoprojektiApplication {
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
-	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "osio1", tutor));
-	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina?", "osio1", tutor));	
-	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", "osio2", tutor));
-	            kysrepository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä?", "osio2", tutor));
-	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", "osio3", tutor));
-	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", "osio3", tutor));
-	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "osio3", tutor));
-	            
+	            kysrepository.save(new Kysymys( "Ikä", "Henkilötiedot", tutor));
+	            kysrepository.save(new Kysymys( "Sukupuoli", "Henkilötiedot", tutor));	
+	            kysrepository.save(new Kysymys( "Koulutusohjelma", "Henkilötiedot", tutor));
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olet ollut Helgan tutortoimintaan?", "Yleistä tutortoiminnasta", tutor));
+	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "Yleistä tutortoiminnasta", tutor));
+	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? ", "Yleistä tutortoiminnasta", tutor));
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", "Ryhmäytyminen", tutor));
+	            kysrepository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä? ", "Ryhmäytyminen", tutor));
+	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", "Ryhmäytyminen", tutor));
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", "Koulun opiskelutyökalujen käyttö", tutor));
+	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "Koulun opiskelutyökalujen käyttö", tutor));
 
 	            //Luodaan uusi kysymys_________tyyppi, ja talletetaan se repoon
-	            Kysymys apuaMonivalintakys1 = new Kysymys ( "Millaisessa tilanteessa olet saanut tutorilta apua?", "osio4", tutor, false);
+	            Kysymys apuaMonivalintakys1 = new Kysymys ( "Millaisessa tilanteessa olet saanut tutorilta apua?", "osio4", tutor);
 	            kysrepository.save(apuaMonivalintakys1);
 	            vvrepository.save(new VastausVaihtoehto("Apua kursseille ilmoittautumiseen", apuaMonivalintakys1));
 	            vvrepository.save(new VastausVaihtoehto("Tietoa opiskelijatapahtumista", apuaMonivalintakys1));

@@ -20,6 +20,7 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
 
 
 
+
 @Controller
 public class VastausController {
 	
@@ -35,19 +36,32 @@ public @ResponseBody List<Vastaus> vastausListRest() {
 
 
 //RESTful Vastausten haku ID:llä
-@RequestMapping(value="/vastaus/{id}", method = RequestMethod.GET)
-public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("id") Long id) {	
-	return vastausrepository.findById(id);
+@RequestMapping(value="/vastaus/{vastausid}", method = RequestMethod.GET)
+public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("vastausid") Long vastausid) {	
+	return vastausrepository.findById(vastausid);
 }	
 
 //RESTful Vastausten tallennus
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public @ResponseBody Vastaus save(@RequestBody Vastaus vastaus){
 	    vastausrepository.save(vastaus);
 	    return vastaus;
+	    
+		// RESTful service to get all students
+	    @RequestMapping(value="/students")
+	    public @ResponseBody List<Student> studentListRest() {	
+	        return (List<Student>) repository.findAll();
+	    }    
+ */
 
+// tallentaa vastaukset
+@RequestMapping(value = "/save", method = RequestMethod.POST)
+public @ResponseBody List<Vastaus> save(@RequestBody Vastaus vastaus){
+	System.out.println("JSONista tullut vastaus " + vastaus);
+    vastausrepository.save(vastaus);
+    return (List<Vastaus>) vastausrepository.findAll();
+}    
 
-}
 	//Annotaatio varmistaa, että HTTP pyyntö /kysely kartoiteaan vastaus() metodin 
 		@CrossOrigin(origins = "http://localhost:8080")
 		   @GetMapping("/kysely")

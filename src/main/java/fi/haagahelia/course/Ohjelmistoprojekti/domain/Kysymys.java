@@ -17,26 +17,27 @@ public class Kysymys {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	private String kysymys;
+	private long kysymysid;
+	private String kysymysteksti;
 	private String osio;
 	private String kysymys_teksti_lyhyt;
 	private String kysymys_teksti_pitka;
 	private int monivalinta;
 	private boolean onRadio;
-	private List<VastausVaihtoehto> vaihtoehdot;
+	//private List<VastausVaihtoehto> vaihtoehdot;
 	
 	/*
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
 	private List<VastausVaihtoehto> vaihtoehdot;
 	
-	public Kysely() {}
+	
 	*/
 	
 	
 	@ManyToOne
 	@JoinColumn(name = "kyselyid")
 	private Kysely kysely;
+	
 	
 	
 	public Kysymys() {
@@ -48,30 +49,33 @@ public class Kysymys {
 	//Tämä contstructori on Radiobutton kysymystyypeille
 	//Boolean true = RadioButton
 	//False = Checkbox
-	public Kysymys(String kysymys, String osio, Kysely kysely, boolean onRadio, List<VastausVaihtoehto> vaihtoehdot) {
+	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio) {
 
-		this.kysymys = kysymys;
+		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;
 		this.kysely = kysely;
 		this.onRadio = onRadio;
-		this.vaihtoehdot = vaihtoehdot;
+		//this.vaihtoehdot = vaihtoehdot;
 		
 
 	}
 	
 	//Tämä contstructori on tekstivastauksille
-	public Kysymys(Long id, String kysymys, String osio, String kysymys_teksti_lyhyt, String kysymys_teksti_pitka,
+	public Kysymys(Long kysymysid, String kysymysteksti, String osio, String kysymys_teksti_lyhyt, String kysymys_teksti_pitka,
 			Kysely kysely) {
-		this.id = id;
-		this.kysymys = kysymys;
+	super();
+		this.kysymysid = kysymysid;
+		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;
 		this.kysymys_teksti_lyhyt = kysymys_teksti_lyhyt;
 		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
 		this.kysely = kysely;
-	}
-	public Kysymys(String kysymys, String osio, Kysely tutor ) {
+	
 		
-		this.kysymys = kysymys;
+	}
+	public Kysymys(String kysymysteksti, String osio, Kysely tutor ) {
+		
+		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;
 		
 	}
@@ -80,12 +84,12 @@ public class Kysymys {
 
 
 
-	public String getKysymys() {
-		return kysymys;
+	public String getKysymysteksti() {
+		return kysymysteksti;
 	}
 
-	public void setKysymys(String kysymys) {
-		this.kysymys = kysymys;
+	public void setKysymysteksti(String kysymysteksti) {
+		this.kysymysteksti = kysymysteksti;
 	}
 
 	
@@ -97,12 +101,12 @@ public class Kysymys {
 		this.osio = osio;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getKysymysid() {
+		return kysymysid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setKysymysid(Long kysymysid) {
+		this.kysymysid = kysymysid;
 	}
 	
 	public boolean getonRadio(boolean onRadio) {
@@ -138,6 +142,8 @@ public class Kysymys {
 		this.monivalinta = monivalinta;
 	}
 	
+	
+	/*
 	public List<VastausVaihtoehto> getVaihtoehdot() {
 		return vaihtoehdot;
 		
@@ -146,12 +152,12 @@ public class Kysymys {
 	public void setVaihtoehdot(List<VastausVaihtoehto> vaihtoehdot) {
 		this.vaihtoehdot = vaihtoehdot;
 	}
-
+*/
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + ", kysymys=" + kysymys + ", osio=" + osio + ", kysymys_teksti_lyhyt="
+		return "Kysymys [kysymysid=" + kysymysid + ", kysymysteksti=" + kysymysteksti + ", osio=" + osio + ", kysymys_teksti_lyhyt="
 				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", monivalinta="
-				+ monivalinta + ", onRadio=" + onRadio + ", kysely=" + kysely + ", vaihtoehdot=" + vaihtoehdot + "]";
+				+ monivalinta + ", onRadio=" + onRadio + ", kysely=" + kysely + "]";
 	}
 
 }

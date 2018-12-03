@@ -12,25 +12,51 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
+
+
 @Entity
 public class Vastaus {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	private String vastaus;
+	private Long vastausid;
+	private String vastausteksti;
 	
 	
 	@ManyToOne
 	@JoinColumn(name = "kysymysid")
 	private Kysymys kysymys;
 	
+
+
 	
-	public Vastaus(Kysymys kysymys) {
+	public Vastaus() {
 		super();
-		this.kysymys = kysymys;
+		// TODO Auto-generated constructor stub
 	}
 
+	public Vastaus(Long vastausid, String vastausteksti, Kysymys kysymys) {
+		super();
+		this.vastausid = vastausid;
+		this.vastausteksti = vastausteksti;
+	}
+
+	public Long getVastausid() {
+		return vastausid;
+	}
+
+	public void setVastausid(Long id) {
+		this.vastausid = id;
+	}
+
+	public String getVastausteksti() {
+		return vastausteksti;
+	}
+
+	public void setVastaus(String vastausteksti) {
+		this.vastausteksti = vastausteksti;
+	}
+	
 	public Kysymys getKysymys() {
 		return kysymys;
 	}
@@ -39,41 +65,13 @@ public class Vastaus {
 		this.kysymys = kysymys;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaus")
-	private List<Vastaus> vastaukset;
-	
-	public Vastaus() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Vastaus(Long id, String vastaus) {
-		super();
-		this.id = id;
-		this.vastaus = vastaus;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getVastaus() {
-		return vastaus;
-	}
-
-	public void setVastaus(String vastaus) {
-		this.vastaus = vastaus;
-	}
-
 	@Override
 	public String toString() {
-		return "Vastaus [id=" + id + ", vastaus=" + vastaus + "]";
+		return "Vastaus [vastausid=" + vastausid + ", vastausteksti=" + vastausteksti + ", kysymys="
+				+ kysymys + "]";
 	}
-	
+
+
 	
 	
 	

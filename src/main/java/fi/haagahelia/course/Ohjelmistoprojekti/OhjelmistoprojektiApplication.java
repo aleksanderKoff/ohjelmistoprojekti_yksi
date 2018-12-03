@@ -65,9 +65,9 @@ public class OhjelmistoprojektiApplication {
 		public CommandLineRunner vastausDemo(VastausRepository vrepository, KysymysRepository kysrepository) {
 			return (args) -> {
 				log.info("tallenna vastauksia");
-				vrepository.save(new Vastaus());
+				//vrepository.save(new Vastaus());
 
-				//vrepository.save(new Vastaus("Olen", kysrepository.findByKysymys("Oletko kiinnostunut toimimaan Helgan tutorina?").get(0)));
+				//vrepository.save(new Vastaus("Mies", kysrepository.findByKysymys("Sukupuoli").get(0)));
 					
 				
 				log.info("hakee kaikki vastaukset");

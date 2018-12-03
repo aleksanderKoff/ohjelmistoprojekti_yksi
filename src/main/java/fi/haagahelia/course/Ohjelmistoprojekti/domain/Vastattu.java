@@ -1,4 +1,4 @@
-package fi.haagahelia.course.Ohjelmistoprojekti.domain;
+/*package fi.haagahelia.course.Ohjelmistoprojekti.domain;
 
 import java.util.List;
 
@@ -47,3 +47,4 @@ public class Vastattu {
 	
 	
 }
+*/

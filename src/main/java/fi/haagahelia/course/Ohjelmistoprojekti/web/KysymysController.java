@@ -36,9 +36,9 @@ private KysymysRepository kysymysrepository;
 }
 
 	// Etsi kysymys ID:llä
-	@RequestMapping(value="/kysymys/{id}", method = RequestMethod.GET)
-	public @ResponseBody Optional<Kysymys> findKysymysRest(@PathVariable("id") Long id) {
-		return kysymysrepository.findById(id);
+	@RequestMapping(value="/kysymys/{kysymysid}", method = RequestMethod.GET)
+	public @ResponseBody Optional<Kysymys> findKysymysRest(@PathVariable("kysymysid") Long kysymysid) {
+		return kysymysrepository.findById(kysymysid);
 	}
 	
 	

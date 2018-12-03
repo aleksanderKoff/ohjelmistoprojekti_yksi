@@ -1,4 +1,4 @@
-package fi.haagahelia.course.Ohjelmistoprojekti.domain;
+/*package fi.haagahelia.course.Ohjelmistoprojekti.domain;
 
 import java.util.Optional;
 
@@ -9,3 +9,4 @@ public interface VastattuRepository extends CrudRepository<Vastattu, Long> {
 	Optional<Vastattu> findById(Long vastattuId);
 
 }
+*/

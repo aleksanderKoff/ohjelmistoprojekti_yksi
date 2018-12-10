@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Kysymys {
@@ -28,12 +30,12 @@ public class Kysymys {
 	
 	//private List<VastausVaihtoehto> vaihtoehdot;
 	
-	/*
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
 	private List<VastausVaihtoehto> vaihtoehdot;
 	
 	
-	*/
+	
 	
 	
 	@ManyToOne
@@ -62,7 +64,7 @@ public class Kysymys {
 		this.onRadio = onRadio;
 		this.checkbox = checkbox;
 		this.dropdown = dropdown;
-		//this.vaihtoehdot = vaihtoehdot;
+		this.vaihtoehdot = vaihtoehdot;
 		
 
 	}
@@ -159,7 +161,7 @@ public class Kysymys {
 	}
 	
 	
-	/*
+	
 	public List<VastausVaihtoehto> getVaihtoehdot() {
 		return vaihtoehdot;
 		
@@ -168,7 +170,7 @@ public class Kysymys {
 	public void setVaihtoehdot(List<VastausVaihtoehto> vaihtoehdot) {
 		this.vaihtoehdot = vaihtoehdot;
 	}
-*/
+
 	@Override
 	public String toString() {
 		return "Kysymys [kysymysid=" + kysymysid + ", kysymysteksti=" + kysymysteksti + ", osio=" + osio + ", kysymys_teksti_lyhyt="

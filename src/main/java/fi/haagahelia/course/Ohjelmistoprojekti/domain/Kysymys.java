@@ -47,9 +47,6 @@ public class Kysymys {
 	}
 	
 	
-	//Tämä contstructori on Radiobutton kysymystyypeille
-	//Boolean true = RadioButton
-	//False = Checkbox
 	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio, boolean checkbox) {
 		
 	
@@ -75,7 +72,6 @@ public class Kysymys {
 	
 		
 	}
-	public Kysymys(String kysymysteksti, String osio, Kysely tutor ) {
 		
 		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;

@@ -26,7 +26,6 @@ public class KysymysController {
 private KysymysRepository kysymysrepository;
 
 
-
 	
 	// Etsi kaikki kysymykset
 

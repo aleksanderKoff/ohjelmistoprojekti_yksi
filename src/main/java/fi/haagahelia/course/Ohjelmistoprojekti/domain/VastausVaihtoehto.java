@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class VastausVaihtoehto {
 
@@ -16,10 +18,13 @@ public class VastausVaihtoehto {
 	private String vastausvaihtoehto;	
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "kysymysid")
 	private Kysymys kysymys;
 	
-	
+	public VastausVaihtoehto() {
+		super();
+	}
 
 	public VastausVaihtoehto(String vastausvaihtoehto, Kysymys kysymys) {
 		super();

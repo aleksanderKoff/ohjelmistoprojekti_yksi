@@ -14,7 +14,7 @@ public class VastausVaihtoehto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long vastausvaihtoehtoId;
 	private String vastausvaihtoehto;	
 	
 	@JsonIgnore
@@ -51,7 +51,7 @@ public class VastausVaihtoehto {
 
 	@Override
 	public String toString() {
-		return "VastausVaihtoehto [id=" + id + ", vastausvaihtoehto=" + vastausvaihtoehto + ", kysymys=" + kysymys
+		return "VastausVaihtoehto [id=" + vastausvaihtoehtoId + ", vastausvaihtoehto=" + vastausvaihtoehto + ", kysymys=" + kysymys
 				+ "]";
 	}
 	

@@ -35,23 +35,33 @@ public class OhjelmistoprojektiApplication {
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
-	            kysrepository.save(new Kysymys( "Ikä", "Henkilötiedot", tutor, true, false));
-	            kysrepository.save(new Kysymys( "Sukupuoli", "Henkilötiedot", tutor, true, false));	
-	            kysrepository.save(new Kysymys( "Koulutusohjelma", "Henkilötiedot", tutor));
-	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olet ollut Helgan tutortoimintaan?", "Yleistä tutortoiminnasta", tutor));
-	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "Yleistä tutortoiminnasta", tutor));
-	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? ", "Yleistä tutortoiminnasta", tutor));
-	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", "Ryhmäytyminen", tutor));
+
+	            kysrepository.save(new Kysymys( "Ikä", "Henkilötiedot", tutor, true, false, false));
+	            vvrepository.save(new VastausVaihtoehto("18-23v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("24-30v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("31-35v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("yli 35v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            
+	            kysrepository.save(new Kysymys( "Sukupuoli", "Henkilötiedot", tutor, true, false, false));	
+	            vvrepository.save(new VastausVaihtoehto("Nainen", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("Mies", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("Muu", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("En halua kertoa", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+
+	            kysrepository.save(new Kysymys( "Koulutusohjelma", "Henkilötiedot", tutor, false, false, true));
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olet ollut Helgan tutortoimintaan?", "Yleistä tutortoiminnasta",  tutor, true, false, false));
+	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "Yleistä tutortoiminnasta", tutor, false, true, false));
+	            kysrepository.save(new Kysymys( "Oletko kiinnostunut toimimaan Helgan tutorina? ", "Yleistä tutortoiminnasta", tutor, true, false, false));
+	            
+	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit ryhmäytymiseen orientaatioviikolla?", "Ryhmäytyminen", tutor, true, false, false));
 	            kysrepository.save(new Kysymys( "Miten tutorit auttoivat ryhmäytymisessä? ", "Ryhmäytyminen", tutor));
 	            kysrepository.save(new Kysymys( "Millaiset opiskelijatapahtumat kiinnostavat sinua?", "Ryhmäytyminen", tutor));
 	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olit tutorien järjestämään perehdytysprosessiin?", "Koulun opiskelutyökalujen käyttö", tutor));
-	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "Koulun opiskelutyökalujen käyttö", tutor));
+	            
+	            kysrepository.save(new Kysymys( "Missä olisit tarvinnut enemmän tukea tutoreilta?", "Koulun opiskelutyökalujen käyttö", tutor, false ,false, false));
 
 	            //Luodaan uusi kysymys_________tyyppi, ja talletetaan se repoon
-	            Kysymys apuaMonivalintakys1 = new Kysymys ( "Millaisessa tilanteessa olet saanut tutorilta apua?", "osio4", tutor);
-	            kysrepository.save(apuaMonivalintakys1);
-	            vvrepository.save(new VastausVaihtoehto("Apua kursseille ilmoittautumiseen", apuaMonivalintakys1));
-	            vvrepository.save(new VastausVaihtoehto("Tietoa opiskelijatapahtumista", apuaMonivalintakys1));
+	            
 	            
 	            //Testi
 	            

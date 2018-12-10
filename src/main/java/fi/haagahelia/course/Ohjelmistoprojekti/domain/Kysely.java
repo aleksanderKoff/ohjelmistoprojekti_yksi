@@ -54,7 +54,6 @@ public class Kysely {
 		return kysymykset;
 	}
 
-	public void setBooks(List<Kysymys> kysymykset) {
 	public void setKysymykset(List<Kysymys> kysymykset) {
 		this.kysymykset = kysymykset;
 	}

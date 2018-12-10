@@ -24,6 +24,7 @@ public class Kysymys {
 	private String kysymys_teksti_pitka;
 	private boolean onRadio;
 	private boolean checkbox;
+	private boolean dropdown;
 	
 	//private List<VastausVaihtoehto> vaihtoehdot;
 	
@@ -50,13 +51,15 @@ public class Kysymys {
 	//Tämä contstructori on Radiobutton kysymystyypeille
 	//Boolean true = RadioButton
 	//False = Checkbox
-	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio, boolean checkbox) {
+	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio, boolean checkbox, boolean dropdown) {
 		
 	
 		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;
 		this.kysely = kysely;
 		this.onRadio = onRadio;
+		this.checkbox = checkbox;
+		this.dropdown = dropdown;
 		//this.vaihtoehdot = vaihtoehdot;
 		
 
@@ -144,6 +147,14 @@ public class Kysymys {
 		this.checkbox = checkbox;
 	}
 	
+	public boolean getDropdown() {
+		return dropdown;
+	}
+
+	public void setDropdown(boolean dropdown) {
+		this.dropdown = dropdown;
+	}
+	
 	
 	/*
 	public List<VastausVaihtoehto> getVaihtoehdot() {
@@ -159,7 +170,7 @@ public class Kysymys {
 	public String toString() {
 		return "Kysymys [kysymysid=" + kysymysid + ", kysymysteksti=" + kysymysteksti + ", osio=" + osio + ", kysymys_teksti_lyhyt="
 				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", checkbox="
-				+ checkbox + ", onRadio=" + onRadio + ", kysely=" + kysely + "]";
+				+ checkbox + ", onRadio=" + onRadio + ", dropdown=" + dropdown + ", kysely=" + kysely + "]";
 	}
 
 }

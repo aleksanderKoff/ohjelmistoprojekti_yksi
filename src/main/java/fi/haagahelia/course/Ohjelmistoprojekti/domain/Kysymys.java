@@ -22,8 +22,9 @@ public class Kysymys {
 	private String osio;
 	private String kysymys_teksti_lyhyt;
 	private String kysymys_teksti_pitka;
+	private Boolean onRadio;
 	private int monivalinta;
-	private boolean onRadio;
+	
 	//private List<VastausVaihtoehto> vaihtoehdot;
 	
 	/*
@@ -50,7 +51,8 @@ public class Kysymys {
 	//Boolean true = RadioButton
 	//False = Checkbox
 	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio) {
-
+		
+	
 		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;
 		this.kysely = kysely;
@@ -109,11 +111,11 @@ public class Kysymys {
 		this.kysymysid = kysymysid;
 	}
 	
-	public boolean getonRadio(boolean onRadio) {
+	public Boolean getOnRadio(Boolean onRadio) {
 		return onRadio;
 	}
 
-	public void setonRadio(boolean onRadio) {
+	public void setOnRadio(Boolean onRadio) {
 		this.onRadio = onRadio;
 	}
 	

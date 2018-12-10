@@ -55,6 +55,7 @@ public class Kysely {
 	}
 
 	public void setBooks(List<Kysymys> kysymykset) {
+	public void setKysymykset(List<Kysymys> kysymykset) {
 		this.kysymykset = kysymykset;
 	}
 	@Override

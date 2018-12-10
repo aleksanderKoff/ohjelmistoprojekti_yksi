@@ -20,7 +20,7 @@ import fi.haagahelia.course.Ohjelmistoprojekti.domain.VastausRepository;
 
 
 
-
+@CrossOrigin
 @Controller
 public class VastausController {
 	

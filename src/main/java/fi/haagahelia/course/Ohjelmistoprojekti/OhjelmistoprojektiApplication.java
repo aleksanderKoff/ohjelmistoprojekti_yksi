@@ -35,8 +35,8 @@ public class OhjelmistoprojektiApplication {
 				Kysely tutor = new Kysely("tutor", "tutoritoiminnan kysely");
 	            krepository.save(tutor);
 				
-	            kysrepository.save(new Kysymys( "Ikä", "Henkilötiedot", tutor));
-	            kysrepository.save(new Kysymys( "Sukupuoli", "Henkilötiedot", tutor, false));	
+	            kysrepository.save(new Kysymys( "Ikä", "Henkilötiedot", tutor, true, false));
+	            kysrepository.save(new Kysymys( "Sukupuoli", "Henkilötiedot", tutor, true, false));	
 	            kysrepository.save(new Kysymys( "Koulutusohjelma", "Henkilötiedot", tutor));
 	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olet ollut Helgan tutortoimintaan?", "Yleistä tutortoiminnasta", tutor));
 	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "Yleistä tutortoiminnasta", tutor));
@@ -54,8 +54,7 @@ public class OhjelmistoprojektiApplication {
 	            vvrepository.save(new VastausVaihtoehto("Tietoa opiskelijatapahtumista", apuaMonivalintakys1));
 	            
 	            //Testi
-	            Kysymys Monivalinta =  new Kysymys ("Sukupuoli", "Henkilötiedot", tutor, true);
-	            kysrepository.save(Monivalinta);
+	            
 				
 				log.info("hae kaikki kyselyt");
 				for (Kysymys kysymys : kysrepository.findAll()) {

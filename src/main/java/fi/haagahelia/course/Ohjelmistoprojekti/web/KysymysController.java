@@ -30,7 +30,10 @@ private KysymysRepository kysymysrepository;
 	// Etsi kaikki kysymykset
 
 	@RequestMapping(value="/kysymykset", method = RequestMethod.GET)
-	public @ResponseBody List<Kysymys> kysymysListRest() {	
+	public @ResponseBody List<Kysymys> kysymysListRest() {
+		System.out.println("Heipähei");
+		List<Kysymys> kysymykset = (List<Kysymys>) kysymysrepository.findAll();
+		System.out.println("Kysymykset kannasta " + kysymykset.get(0));
 		return (List<Kysymys>) kysymysrepository.findAll();
 }
 

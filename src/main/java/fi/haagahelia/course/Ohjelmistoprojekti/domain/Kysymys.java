@@ -22,8 +22,8 @@ public class Kysymys {
 	private String osio;
 	private String kysymys_teksti_lyhyt;
 	private String kysymys_teksti_pitka;
-	private Boolean onRadio;
-	private int monivalinta;
+	private boolean onRadio;
+	private boolean checkbox;
 	
 	//private List<VastausVaihtoehto> vaihtoehdot;
 	
@@ -50,7 +50,7 @@ public class Kysymys {
 	//Tämä contstructori on Radiobutton kysymystyypeille
 	//Boolean true = RadioButton
 	//False = Checkbox
-	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio) {
+	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio, boolean checkbox) {
 		
 	
 		this.kysymysteksti = kysymysteksti;
@@ -111,11 +111,11 @@ public class Kysymys {
 		this.kysymysid = kysymysid;
 	}
 	
-	public Boolean getOnRadio(Boolean onRadio) {
+	public Boolean getOnRadio() {
 		return onRadio;
 	}
 
-	public void setOnRadio(Boolean onRadio) {
+	public void setOnRadio(boolean onRadio) {
 		this.onRadio = onRadio;
 	}
 	
@@ -136,12 +136,12 @@ public class Kysymys {
 		this.kysymys_teksti_pitka = kysymys_teksti_pitka;
 	}
 
-	public int getMonivalinta() {
-		return monivalinta;
+	public boolean getCheckbox() {
+		return checkbox;
 	}
 
-	public void setMonivalinta(int monivalinta) {
-		this.monivalinta = monivalinta;
+	public void setCheckbox(boolean checkbox) {
+		this.checkbox = checkbox;
 	}
 	
 	
@@ -158,8 +158,8 @@ public class Kysymys {
 	@Override
 	public String toString() {
 		return "Kysymys [kysymysid=" + kysymysid + ", kysymysteksti=" + kysymysteksti + ", osio=" + osio + ", kysymys_teksti_lyhyt="
-				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", monivalinta="
-				+ monivalinta + ", onRadio=" + onRadio + ", kysely=" + kysely + "]";
+				+ kysymys_teksti_lyhyt + ", kysymys_teksti_pitka=" + kysymys_teksti_pitka + ", checkbox="
+				+ checkbox + ", onRadio=" + onRadio + ", kysely=" + kysely + "]";
 	}
 
 }

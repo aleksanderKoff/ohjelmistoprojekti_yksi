@@ -36,7 +36,17 @@ public class OhjelmistoprojektiApplication {
 	            krepository.save(tutor);
 				
 	            kysrepository.save(new Kysymys( "Ikä", "Henkilötiedot", tutor, true, false));
+	            vvrepository.save(new VastausVaihtoehto("18-23v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("24-30v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("31-35v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("yli 35v", kysrepository.findByKysymysteksti("Ikä").get(0)));
+	            
 	            kysrepository.save(new Kysymys( "Sukupuoli", "Henkilötiedot", tutor, true, false));	
+	            vvrepository.save(new VastausVaihtoehto("Nainen", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("Mies", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("Muu", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("En halua kertoa", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
+	            vvrepository.save(new VastausVaihtoehto("A10 warthog rynnäkköhävittäjä", kysrepository.findByKysymysteksti("Sukupuoli").get(0)));
 	            kysrepository.save(new Kysymys( "Koulutusohjelma", "Henkilötiedot", tutor));
 	            kysrepository.save(new Kysymys( "Kuinka tyytyväinen olet ollut Helgan tutortoimintaan?", "Yleistä tutortoiminnasta", tutor));
 	            kysrepository.save(new Kysymys( "Millaisissa tilanteissa olet saanut tutorilta apua?", "Yleistä tutortoiminnasta", tutor));

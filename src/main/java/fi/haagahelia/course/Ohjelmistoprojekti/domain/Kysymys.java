@@ -47,6 +47,9 @@ public class Kysymys {
 	}
 	
 	
+	//Tämä contstructori on monivalinta kysymyksille
+	//onRadio boolean true = on radiobutton tyyppi
+	//checkbox boolean true = checkbox tyyppi
 	public Kysymys(String kysymysteksti, String osio, Kysely kysely, boolean onRadio, boolean checkbox) {
 		
 	
@@ -72,9 +75,11 @@ public class Kysymys {
 	
 		
 	}
+	public Kysymys(String kysymysteksti, String osio, Kysely kysely ) {
 		
 		this.kysymysteksti = kysymysteksti;
 		this.osio = osio;
+		this.kysely = kysely;
 		
 	}
 

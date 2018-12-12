@@ -52,11 +52,15 @@ public @ResponseBody List<Vastaus> save(@RequestBody Vastaus vastaus){
     return (List<Vastaus>) vastausrepository.findAll();
 }    */
 
+//tallentaa vastaukset
 @RequestMapping(value = "/save", method = RequestMethod.POST)
-public String save(Vastaus vastaus){
-    vastausrepository.save(vastaus);
-    return "redirect:vastaus";
-}
+public @ResponseBody List<Vastaus> save(@RequestBody Vastaus vastaus){
+	System.out.println("JSONista tullut vastaus " + vastaus);
+ vastausrepository.save(vastaus);
+ return (List<Vastaus>) vastausrepository.findAll();
+}    
+
+
 
 
 	//Annotaatio varmistaa, että HTTP pyyntö /kysely kartoiteaan vastaus() metodin 

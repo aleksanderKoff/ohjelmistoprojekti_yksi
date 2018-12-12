@@ -45,8 +45,8 @@ public class Vastaus {
 		return vastausid;
 	}
 
-	public void setVastausid(Long id) {
-		this.vastausid = id;
+	public void setVastausid(Long vastausid) {
+		this.vastausid = vastausid;
 	}
 
 	public String getVastausteksti() {

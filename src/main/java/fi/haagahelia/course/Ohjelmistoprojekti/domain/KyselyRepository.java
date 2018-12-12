@@ -8,5 +8,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface KyselyRepository extends CrudRepository<Kysely, Long> {
 	
 	Optional<Kysely> findById(Long id);
-	List<Kysely> findByOtsikko(String Otsikko);
+	//List<Kysely> findByOtsikko(String Otsikko);
 }

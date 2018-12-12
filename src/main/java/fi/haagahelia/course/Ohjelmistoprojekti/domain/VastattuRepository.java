@@ -8,5 +8,4 @@ public interface VastattuRepository extends CrudRepository<Vastattu, Long> {
 	
 	Optional<Vastattu> findById(Long vastattuId);
 
-}
-*/
+}*/

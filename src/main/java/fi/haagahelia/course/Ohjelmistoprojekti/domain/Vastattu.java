@@ -1,5 +1,6 @@
 /*package fi.haagahelia.course.Ohjelmistoprojekti.domain;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,36 +18,64 @@ public class Vastattu {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long vastattuId;
+	private List<Vastattu> vastattuja;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaus")
-	private List<Vastaus> vastaukset;
+	@ManyToOne
+	@JoinColumn(name = "vastausid")
+	private Vastaus vastaus;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastausvaihtoehto")
-	private List<VastausVaihtoehto> vastausvaihtoehdot;
-
-	public List<Vastaus> getVastaukset() {
-		return vastaukset;
+	@ManyToOne
+	@JoinColumn(name = "vastausvaihtoehtoid")
+	private VastausVaihtoehto vastausvaihtoehto;
+	
+	public Vastattu () {}
+	
+	public Vastattu(Long vastattuId, Vastaus vastaus, VastausVaihtoehto vastausvaihtoehto){
+		super();
+		this.vastattuId = vastattuId;
+		this.vastaus = vastaus;
+		this.vastausvaihtoehto = vastausvaihtoehto;
 	}
 
-	public void setVastaukset(List<Vastaus> vastaukset) {
-		this.vastaukset = vastaukset;
+
+	public Vastaus getVastaus() {
+		return vastaus;
 	}
 
-	public List<VastausVaihtoehto> getVastausvaihtoehdot() {
-		return vastausvaihtoehdot;
+
+	public void setVastaus(Vastaus vastaus) {
+		this.vastaus = vastaus;
 	}
 
-	public void setVastausvaihtoehdot(List<VastausVaihtoehto> vastausvaihtoehdot) {
-		this.vastausvaihtoehdot = vastausvaihtoehdot;
+
+	public VastausVaihtoehto getVastausvaihtoehto() {
+		return vastausvaihtoehto;
+	}
+
+
+	public void setVastausvaihtoehto(VastausVaihtoehto vastausvaihtoehto) {
+		this.vastausvaihtoehto = vastausvaihtoehto;
+	}
+	
+	
+
+
+	public List<Vastattu> getVastattuja() {
+		return vastattuja;
+	}
+
+	public void setVastattuja(List<Vastattu> vastattuja) {
+		this.vastattuja = vastattuja;
 	}
 
 	@Override
 	public String toString() {
-		return "Vastattu [vastattuId=" + vastattuId + ", vastaukset=" + vastaukset + ", vastausvaihtoehdot="
-				+ vastausvaihtoehdot + "]";
+		return "Vastattu [vastattuId=" + vastattuId + ", vastaus=" + vastaus + ", vastausvaihtoehto="
+				+ vastausvaihtoehto + "]";
 	}
+
 	
 	
 	
-}
-*/
+	
+}*/

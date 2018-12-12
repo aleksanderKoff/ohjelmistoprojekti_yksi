@@ -44,12 +44,20 @@ public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("vastausid"
 
 
 // tallentaa vastaukset
+/*
 @RequestMapping(value = "/save", method = RequestMethod.POST)
 public @ResponseBody List<Vastaus> save(@RequestBody Vastaus vastaus){
 	System.out.println("JSONista tullut vastaus " + vastaus);
     vastausrepository.save(vastaus);
     return (List<Vastaus>) vastausrepository.findAll();
-}    
+}    */
+
+@RequestMapping(value = "/save", method = RequestMethod.POST)
+public String save(Vastaus vastaus){
+    vastausrepository.save(vastaus);
+    return "redirect:vastaus";
+}
+
 
 	//Annotaatio varmistaa, että HTTP pyyntö /kysely kartoiteaan vastaus() metodin 
 		@CrossOrigin(origins = "http://localhost:8080")

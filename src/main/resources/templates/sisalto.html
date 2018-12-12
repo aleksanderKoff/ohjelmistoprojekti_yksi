@@ -1,15 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 <head>
-    <title>Etsi Kysely</title>
+    <title>Sisältö</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
      <style>
-    p, tr, td {
+    p, a {
     	font-size: 14px;
-    	font-color: #000000;
+    	color: #000000;
     	font-family: tahoma;
     	padding: 2px;
     }
+    	p {
+	    	margin-top: 0.5px; 
+	    	margin-bottom: 0.5px; 
+	    	margin-left: 20px;
+	    	}
+    
+    	a, a:visited {
+    		color: #1f93ad;
+    		font-size: 16px;
+    		text-decoration: none;
+    		}
+    		
+    		a:hover {color: #b9dde5;}
     
     tr, td {
     	padding-left: 26px;
@@ -28,15 +41,12 @@
     </style>
 </head>
 <body>
-	<h1>Etsi Kysely</h1>
-    <table>
-		<tr>
-		    <th>Id: </th>
-		    
-    	
-    		<!-- <tr th:each = "kysely : ${kyselyt}">
-    		<td th:text="${kysely.kyselyid}"></td> -->
-    	</tr>
-     </table>	
+	<h1>Projektin listoja ja muuta</h1>
+	<br><a th:href="@{/kyselyt}">Kyselyt</a>
+	<br><a th:href="@{/kysymykset}">Kysymykset</a>
+	<br><a th:href="@{/vastaus}">Vastaukset</a>
+	<p>- Yksittäisiä vastauksia voi hakea " /vastaus/{id} ".</p>
+	
+    
 </body>
 </html>

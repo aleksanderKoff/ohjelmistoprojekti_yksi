@@ -25,6 +25,7 @@ public class VastausVaihtoehto {
 
 	private String vastausvaihtoehto;	
 	
+	@JsonIgnore
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "kysymysid")
@@ -59,7 +60,7 @@ public class VastausVaihtoehto {
 
 	@Override
 	public String toString() {
-		return "VastausVaihtoehto [id=" + id + ", vastausvaihtoehto=" + vastausvaihtoehto + ", kysymys=" + kysymys
+		return "VastausVaihtoehto [id=" + vastausvaihtoehtoId + ", vastausvaihtoehto=" + vastausvaihtoehto + ", kysymys=" + kysymys
 				+ "]";
 	}
 	

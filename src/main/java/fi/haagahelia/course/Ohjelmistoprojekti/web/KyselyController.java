@@ -2,6 +2,7 @@ package fi.haagahelia.course.Ohjelmistoprojekti.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,21 +22,31 @@ public class KyselyController {
 
 private KyselyRepository kyselyrepository;
 
+	//Koko sivun sisältö (linkit vastaus,kysely, kysymys listauksiin)
+	@RequestMapping(value="/sisalto") 
+		public String sisalto() {
+		return "sisalto";}
 
-
+	//Lista Kyselyistä - Ei löydä kyselyid:tä tällä hetkellä
+	@RequestMapping(value="/haekysely")
+	public String kyselyList(Model model) {
+		model.addAttribute("kyselyt", kyselyrepository.findAll());
+		return "haekysely";
+} 
 	
 	// Etsi kaikki kyselyt
-/*
-	@RequestMapping(value="/kysely", method = RequestMethod.GET)
+
+	@RequestMapping(value="/kyselyt", method = RequestMethod.GET)
 	public @ResponseBody List<Kysely> kyselyListRest() {	
 		return (List<Kysely>) kyselyrepository.findAll();
 }
-*/
+
 	 //Etsi kysely ID:llä
-	@RequestMapping(value="/kysely/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/kyselyt/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Kysely> findKyselyRest(@PathVariable("id") Long id) {
 		return kyselyrepository.findById(id);
 	}
+	
 	
 	
 }

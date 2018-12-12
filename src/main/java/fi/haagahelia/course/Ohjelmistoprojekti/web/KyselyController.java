@@ -23,9 +23,9 @@ private KyselyRepository kyselyrepository;
 
 
 
-	
+/*	
 	// Etsi kaikki kyselyt
-/*
+
 	@RequestMapping(value="/kysely", method = RequestMethod.GET)
 	public @ResponseBody List<Kysely> kyselyListRest() {	
 		return (List<Kysely>) kyselyrepository.findAll();
@@ -39,3 +39,5 @@ private KyselyRepository kyselyrepository;
 	
 	
 }
+
+

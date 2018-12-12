@@ -41,18 +41,7 @@ public @ResponseBody Optional<Vastaus> findVastausRest(@PathVariable("vastausid"
 	return vastausrepository.findById(vastausid);
 }	
 
-//RESTful Vastausten tallennus
-	/*@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public @ResponseBody Vastaus save(@RequestBody Vastaus vastaus){
-	    vastausrepository.save(vastaus);
-	    return vastaus;
-	    
-		// RESTful service to get all students
-	    @RequestMapping(value="/students")
-	    public @ResponseBody List<Student> studentListRest() {	
-	        return (List<Student>) repository.findAll();
-	    }    
- */
+
 
 // tallentaa vastaukset
 @RequestMapping(value = "/save", method = RequestMethod.POST)
